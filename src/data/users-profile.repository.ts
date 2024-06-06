@@ -9,7 +9,11 @@ export class UserProfileRepository {
 
   constructor() {
     const __dirname = dirname(fileURLToPath(import.meta.url));
-    const file = join(__dirname, "db.json");
+    // const file = join(__dirname, "db.json");
+    const file = join(__dirname, "..", "db.json");
+    console.log("dir", __dirname);
+    console.log("import.meta.url)", import.meta.url);
+    console.log("file", file);
     const adapter = new JSONFile<UserProfiles>(file);
     const defaultData = { usersProfile: [] };
     this.db = new Low<UserProfiles>(adapter, defaultData);
